@@ -1,1 +1,1 @@
-ruby httpReader.rb  to run the 'browser', little to no features
+ruby internetCLI.rb  to run the 'browser', little to no features
