@@ -3,7 +3,7 @@ require 'browser.rb'
 
 GREETING = "Welcome to the command line interface for the Internet!\n"
 USAGE = "http:// and www are optional in this interface\n" +
-				"the . domain and follwing / are needed as it stands\n"
+				"the . domain is needed as it stands\n"
 PROMPT = "Please enter a url:"
 
 browser = Browser.new
