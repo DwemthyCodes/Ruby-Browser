@@ -24,7 +24,8 @@ class HTMLReader
 	end
 
 	def descript( html )
-		html.gsub!( /<script>.*<\/script>/, '' )
+		html.gsub!( /<script>.*<\/script>/m, '' )
+		html.gsub!( /<script .*>.*<\/script>/m, '' )
 		html.gsub!( /<script\s.*\/>/, '' )
 
 		html
