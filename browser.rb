@@ -1,6 +1,7 @@
 require 'urlParser.rb'
 require 'httpRequester.rb'
 require 'htmlReader.rb'
+require 'page.rb'
 
 class Browser
 
@@ -17,6 +18,6 @@ class Browser
 		raw_html = @requester.request( parsed_url )
 		puts "Processing HTML "
 		page = @reader.format( raw_html )
-		page
+		@page = Page.new( page )
 	end
 end

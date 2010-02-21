@@ -1,4 +1,4 @@
-#!/bin/ruby
+#!/usr/bin/ruby
 require 'browser.rb'
 
 GREETING = "Welcome to the command line interface for the Internet!\n"
