@@ -26,8 +26,35 @@ class Page
 
 	def makeTitle
 		if( @header =~ /(<title>)(.*)(<\/title>)/ )
-			@title = "--------" + $2 + "--------\n"
+			@title = fillToWidth( $2 )
 		end
+	end
+
+	def calcWidth
+		`export COLUMNS`
+		@width = ENV['COLUMNS'].to_i
+	end
+
+	def fillToWidth( text )
+		calcWidth
+		spaceToFill = @width - text.length
+
+		frontFill = endFill = spaceToFill/2
+		if spaceToFill%2 == 1
+			endFill += 1
+		end
+
+		filledText = ''
+		frontFill.times do
+			filledText += '-'
+		end
+
+		filledText += text
+		endFill.times do 
+			filledText += '-'
+		end
+
+		filledText
 	end
 
 end
