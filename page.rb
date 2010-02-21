@@ -6,15 +6,26 @@ class Page
 	end
 
 	def processHead( html )
-		if( html =~ /(<head>)(.*)(<\/head>)/m )
-			@header = $2
-			makeTitle()
-			if( @title )
-				puts @title
-			else
-				puts "---HEADER START---\n" + @header + "---HEADER END---\n"
+		#Find the start tag
+		if( html =~ /<head.*>/ )
+			#Store the part following the match
+			header = "#{$'}"
+			#Find the end tag from the stored value
+			if header =~ /<\/head/
+				#Store the part preceeding the match
+				header = "#{$`}"
+				#Store the resulting body of text
+				#Likely to have lurking newlines and whitespace
+				@header = header
 			end
 		end
+		makeTitle()
+		if( @title )
+			puts @title
+		else
+			puts "---HEADER START---\n" + @header + "---HEADER END---\n"
+		end
+		
 	end
 
 	def processBody( html )
